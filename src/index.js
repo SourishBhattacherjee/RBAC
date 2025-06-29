@@ -7,14 +7,14 @@ const app = express();
 //middleware;
 app.use(express.json());
 
-
-//routes
-
-
 //start the server
-const PORT = process.env.PORT || 7002;
+const PORT = 7002;
 app.listen(PORT,()=>{
   console.log(`app running on ${PORT}`)
 })
 
 dbConnect();
+
+//routes
+app.use('/api',require('./routes/authRoutes'))
+
